@@ -7,11 +7,10 @@
 			controlHTML : '',		//html代码
             className: 'scrollControl',
             zindex: 99999,
-            hover_color:'#00C000',
 			downx : 325,					//回到顶部 right 偏移位置
 			downy : 125,					//回到顶部 bottom 偏移位置
 			upx : 325,
-			upy : 125,
+			upy : 425,
 		}, options);
 		
 		var $body, $up, $down;
@@ -19,12 +18,9 @@
 		var init = function(){
 			$body =  $('html,body');
 
-			$('<div class="'+options.className+'" id="upcontrol">' + options.controlHTML + '</div>').css({
-				position : 'fixed',
+			$('<div class="upScroll '+options.className+'" id="upcontrol">' + options.controlHTML + '</div>').css({
 				top : options.upy,
 				right : options.upx,
-				opacity : 100,
-                'z-index' : options.zindex,
 			}).mouseenter(function() {
 				scroll(-options.step);
 				return false;
@@ -33,17 +29,14 @@
                 return false;
 			}).appendTo('body');
 
-			$('<div class="'+options.className+'" id="downcontrol">' + options.controlHTML + '</div>').css({
-				position : 'fixed',
+			$('<div class="downScroll '+options.className+'" id="downcontrol">' + options.controlHTML + '</div>').css({
 				bottom : options.downy,
 				right : options.downx,
-				opacity : 100,
-                'z-index' : options.zindex,
 			}).mouseenter(function() {
 				scroll(options.step);
 				return false;
 			}).on('click', function() {
-                scroll($body.width());
+                scroll($body.height());
                 return false;
 			}).appendTo('body');
 
