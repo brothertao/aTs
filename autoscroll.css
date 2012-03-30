@@ -1,0 +1,11 @@
+.scrollControl {
+    -webkit-transform:rotate(45deg);
+    border:2px solid #AAAAAA;
+    height:80px;
+    position:absolute;
+    width:80px;
+    border-color : #0808FF;
+}
+.scrollControl:hover {
+    background-color : #00C000;
+}
